@@ -34,11 +34,11 @@ def domestic_entries():
         op5 = st.checkbox('Hen')
 
         st.write('Number of each breed *')
-        c1 = st.text_input('Enter number of cows *', value='0')
-        c2 = st.text_input('Enter number of buffaloes *', value='0')
-        c3 = st.text_input('Enter number of sheep *', value='0')
-        c4 = st.text_input('Enter number of dogs *', value='0')
-        c5 = st.text_input('Enter number of hens *', value='0')
+        c1 = st.text_input('Enter number of cows *')
+        c2 = st.text_input('Enter number of buffaloes *')
+        c3 = st.text_input('Enter number of sheep *')
+        c4 = st.text_input('Enter number of dogs *')
+        c5 = st.text_input('Enter number of hens *')
 
     return name, address, pincode, aadhar, contact, count, c1, c2, c3, c4, c5
 
