@@ -23,17 +23,17 @@ def domestic_entries():
     aadhar = st.text_input('Enter Aadhar card number *')
     contact = st.text_input('Enter Contact number *')
     count = st.text_input('Enter Count of family members *')
-    response = st.radio('Do you have animals?', ('Yes', 'No'), index=1)
+    response = st.radio('Do you practice cattle culture', ('Yes', 'No'), index=1)
     c1 = c2 = c3 = c4 = c5 = 0
     if response == 'Yes':
-        st.write('Choose animals you have *')
+        st.write('Choose breeds you have *')
         op1 = st.checkbox('Cow')
         op2 = st.checkbox('Buffalo')
         op3 = st.checkbox('Sheep')
         op4 = st.checkbox('Dog')
         op5 = st.checkbox('Hen')
 
-        st.write('Number of each animals *')
+        st.write('Number of each breed *')
         c1 = st.text_input('Enter number of cows *', value='0')
         c2 = st.text_input('Enter number of buffaloes *', value='0')
         c3 = st.text_input('Enter number of sheep *', value='0')
