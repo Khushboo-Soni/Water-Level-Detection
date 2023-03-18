@@ -53,10 +53,10 @@ with back.container():
 if submit_button:
     # save data for domestic
     if use_type == 'Domestic':
-        with open('domestic_record.csv', 'a') as f:
+        with open('domestic_record.csv', 'a', newline='') as f:
             dict_writer = DictWriter(f, fieldnames=['Name', 'Address', 'Pincode', 'Aadhar No.', 'Contact No',
                                                     'Family size', 'Animal name', 'Animal Count', 'Water Required'])
-            if os.stat('domestic_record.csv', newline='').st_size == 0:
+            if os.stat('domestic_record.csv').st_size == 0:
                 dict_writer.writeheader()
             dict_writer.writerow({
                 'Name': name,
@@ -73,11 +73,11 @@ if submit_button:
 
     # save data for tourist
     elif use_type == 'Tourist':
-        with open('tourist_record.csv', 'a') as f:
+        with open('tourist_record.csv', 'a', newline='') as f:
             dict_writer = DictWriter(f, fieldnames=['Name', 'Address', 'Pincode', 'Unique ID', 'Contact No',
                                                     'No of Guests',
                                                     'Nationality', 'Check-in', 'Check-out', 'Water Required'])
-            if os.stat('tourist_record.csv', newline='').st_size == 0:
+            if os.stat('tourist_record.csv').st_size == 0:
                 dict_writer.writeheader()
             dict_writer.writerow({
                 'Name': name,
@@ -94,10 +94,10 @@ if submit_button:
 
     # save data for agriculture
     else:
-        with open('agriculture_record.csv', 'a') as f:
+        with open('agriculture_record.csv', 'a', newline='') as f:
             dict_writer = DictWriter(f, fieldnames=['Name', 'Address', 'Pincode', 'Contact No', 'Land Area',
                                                     'Crope Type', 'Water Required'])
-            if os.stat('agriculture_record.csv', newline='').st_size == 0:
+            if os.stat('agriculture_record.csv').st_size == 0:
                 dict_writer.writeheader()
             dict_writer.writerow({
                 'Name': name,
