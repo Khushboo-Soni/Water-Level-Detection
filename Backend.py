@@ -9,11 +9,23 @@ def feedback():
                 '2. Contact number: 9983177800')
 
 
-def feedback_tourist():
+def domestic_feedback(count, c1, c2, c3, c4, c5):
     import streamlit as st
     feedback()
+    st.markdown('* Water required for **Domestic** is {}'.format(20 * int(count) + 80 * int(c1) + 100 * int(c2)
+                                  + 10 * int(c3) + 2 * int(c4) + 5 * int(c5)))
+
+def feedback_tourist(count):
+    import streamlit as st
+    feedback()
+    st.markdown('* Water required for **Tourist** is {}'.format(18 * int(count)))
     st.markdown('**Note**:- The water used by tourist is charged according to the usage amount explained on app info.')
 
+
+def feedback_agriculture(water_needed):
+    import streamlit as st
+    feedback()
+    st.markdown('* Water required for **Agriculture** is {}'.format(water_needed))
 
 def domestic_entries():
     import streamlit as st

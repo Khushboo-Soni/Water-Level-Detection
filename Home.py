@@ -111,8 +111,10 @@ if submit_button:
 
     contain.empty()
     if use_type == 'Tourist':
-        feedback_tourist()
+        feedback_tourist(count)
+    elif use_type == 'Domestic':
+        domestic_feedback(count, c1, c2, c3, c4, c5)
     else:
-        feedback()
+        feedback_agriculture(water_needed)
     back.empty()
     submit.empty()
