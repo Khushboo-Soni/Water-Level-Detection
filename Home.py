@@ -4,7 +4,7 @@ from csv import DictWriter
 import os
 
 # adding page name
-st.set_page_config(page_title='Water Level', page_icon='💧')
+st.set_page_config(page_title='We Love Water', page_icon='💧')
 
 # adding logo image
 st.image('logo.jpeg')
