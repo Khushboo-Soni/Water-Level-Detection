@@ -2,6 +2,17 @@ import streamlit as st
 from Backend import *
 from csv import DictWriter
 import os
+from google.cloud import firestore
+
+# Authenticate to Firestore with the JSON account key.
+db = firestore.Client.from_service_account_json("we-love-water-firebase-adminsdk-82y8k-3fd7edd8e6.json")
+
+# Create a reference to the Google post.
+domestic = db.collection("domestic_record").document("606lcU5ENeODhm4dXo3q")
+
+tourist = db.collection("tourist_record").document("B7TCrXyCFalM0tePcCNZ")
+
+agriculture = db.collection("agriculture_record").document("9J5dRc5hWLf8V97lY83S")
 
 # adding page name
 st.set_page_config(page_title='We Love Water', page_icon='💧')
@@ -53,12 +64,7 @@ with back.container():
 if submit_button:
     # save data for domestic
     if use_type == 'Domestic':
-        with open('domestic_record.csv', 'a', newline='') as f:
-            dict_writer = DictWriter(f, fieldnames=['Name', 'Address', 'Pincode', 'Aadhar No.', 'Contact No',
-                                                    'Family size', 'Animal name', 'Animal Count', 'Water Required'])
-            if os.stat('domestic_record.csv').st_size == 0:
-                dict_writer.writeheader()
-            dict_writer.writerow({
+        domestic.set({
                 'Name': name,
                 'Address': address,
                 'Pincode': pincode,
@@ -73,13 +79,7 @@ if submit_button:
 
     # save data for tourist
     elif use_type == 'Tourist':
-        with open('tourist_record.csv', 'a', newline='') as f:
-            dict_writer = DictWriter(f, fieldnames=['Name', 'Address', 'Pincode', 'Unique ID', 'Contact No',
-                                                    'No of Guests',
-                                                    'Nationality', 'Check-in', 'Check-out', 'Water Required'])
-            if os.stat('tourist_record.csv').st_size == 0:
-                dict_writer.writeheader()
-            dict_writer.writerow({
+        tourist.set({
                 'Name': name,
                 'Address': address,
                 'Pincode': pincode,
@@ -94,12 +94,7 @@ if submit_button:
 
     # save data for agriculture
     else:
-        with open('agriculture_record.csv', 'a', newline='') as f:
-            dict_writer = DictWriter(f, fieldnames=['Name', 'Address', 'Pincode', 'Contact No', 'Land Area',
-                                                    'Crope Type', 'Water Required'])
-            if os.stat('agriculture_record.csv').st_size == 0:
-                dict_writer.writeheader()
-            dict_writer.writerow({
+        agriculture.set({
                 'Name': name,
                 'Address': address,
                 'Pincode': pincode,
