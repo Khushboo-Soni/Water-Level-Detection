@@ -21,7 +21,7 @@ contain = st.empty()
 # declaring fields
 name = address = pincode = aadhar = contact = count = uid = citizen = checkin = checkout = \
     area = water_needed = crope_type = None
-c1 = c2 = c3 = c4 = c5 = 0
+c1 = c2 = c3 = c4 = c5 = None
 
 # adding choose condition
 if use_type == 'Domestic':
