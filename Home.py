@@ -4,7 +4,7 @@ from csv import DictWriter
 import os
 
 # adding page name
-st.set_page_config(page_title='We Love Water', page_icon='💧')
+st.set_page_config(page_title='Water Level', page_icon='💧')
 
 # adding logo image
 st.image('logo.jpeg')
@@ -21,7 +21,7 @@ contain = st.empty()
 # declaring fields
 name = address = pincode = aadhar = contact = count = uid = citizen = checkin = checkout = \
     area = water_needed = crope_type = None
-c1 = c2 = c3 = c4 = c5 = ''
+c1 = c2 = c3 = c4 = c5 = 0
 
 # adding choose condition
 if use_type == 'Domestic':
@@ -51,8 +51,9 @@ with back.container():
 
 # checking for submit condition
 if submit_button:
-     if use_type == 'Domestic':
-        with open('domestic_record.csv', 'a', newline='') as f:
+    # save data for domestic
+    if use_type == 'Domestic':
+        with open('domestic_record.csv', 'a') as f:
             dict_writer = DictWriter(f, fieldnames=['Name', 'Address', 'Pincode', 'Aadhar No.', 'Contact No',
                                                     'Family size', 'Animal name', 'Animal Count', 'Water Required'])
             if os.stat('domestic_record.csv').st_size == 0:
@@ -72,7 +73,7 @@ if submit_button:
 
     # save data for tourist
     elif use_type == 'Tourist':
-        with open('tourist_record.csv', 'a', newline='') as f:
+        with open('tourist_record.csv', 'a') as f:
             dict_writer = DictWriter(f, fieldnames=['Name', 'Address', 'Pincode', 'Unique ID', 'Contact No',
                                                     'No of Guests',
                                                     'Nationality', 'Check-in', 'Check-out', 'Water Required'])
@@ -93,7 +94,7 @@ if submit_button:
 
     # save data for agriculture
     else:
-        with open('agriculture_record.csv', 'a', newline='') as f:
+        with open('agriculture_record.csv', 'a') as f:
             dict_writer = DictWriter(f, fieldnames=['Name', 'Address', 'Pincode', 'Contact No', 'Land Area',
                                                     'Crope Type', 'Water Required'])
             if os.stat('agriculture_record.csv').st_size == 0:
