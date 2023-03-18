@@ -24,7 +24,7 @@ def domestic_entries():
     contact = st.text_input('Enter Contact number *')
     count = st.text_input('Enter Count of family members *')
     response = st.radio('Do you practice cattle culture', ('Yes', 'No'), index=1)
-    c1 = c2 = c3 = c4 = c5 = None
+    c1 = c2 = c3 = c4 = c5 = ''
     if response == 'Yes':
         st.write('Choose breeds you have *')
         op1 = st.checkbox('Cow')
